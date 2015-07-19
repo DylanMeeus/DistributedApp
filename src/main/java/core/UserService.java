@@ -3,16 +3,22 @@ package core;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService
+import javax.ejb.Remote;
+import javax.ejb.Stateful;
+import javax.ejb.Stateless;
+
+@Stateful
+public class UserService implements RemoteService
 {
 	List<User> users;
 	PasswordGenerator generator;
 	public UserService()
 	{
 		users = new ArrayList<User>();
-		generator = new TimeBasedGenerator();
+		generator = new TimeBasedGenerator();	
 	}
 	
+
 	public List<User> getUsers()
 	{
 		return users;
