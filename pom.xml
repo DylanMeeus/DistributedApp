@@ -6,8 +6,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Distributed Applications</name>
 	<description>A project for DA	</description>
-
-
+	<packaging>war</packaging>
 	<properties>
 		<!-- When commiting to the server; the home dir = /opt/glassfish41 -->
 		<glassfish.home>C:\\Program Files (x86)\\glassfish4</glassfish.home>
@@ -21,14 +20,44 @@
 			<version>7.0</version>
 		</dependency>
 		
+		
+		<!--  Test with some other dependencies... -->
+		
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+			<version>2.2.8-02</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+			<version>2.2.8-02</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.enterprise</groupId>
+			<artifactId>cdi-api</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		
+		<!-- 
+		
+		No idea why I need to remove this... 
+		
 		  <dependency>   
             <groupId>org.glassfish.main.appclient</groupId>
             <artifactId>gf-client</artifactId>
             <version>4.0</version>
         </dependency>
 	</dependencies>
-
-
+ -->
+ 
+ 
+</dependencies>
 	<build>
 		<plugins>
 			<plugin>
@@ -60,7 +89,7 @@
 					<components>
 						<component>
 							<name>${project.artifactId}</name>
-							<artifact>target/${project.build.finalName}.jar</artifact>
+							<artifact>target/${project.build.finalName}.war</artifact>
 						</component>
 					</components>
 				</configuration>

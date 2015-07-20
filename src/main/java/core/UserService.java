@@ -7,7 +7,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 
-@Stateful
+@Stateless
 public class UserService implements RemoteService
 {
 	List<User> users;
@@ -16,6 +16,10 @@ public class UserService implements RemoteService
 	{
 		users = new ArrayList<User>();
 		generator = new TimeBasedGenerator();	
+		User testUser = new User();
+		testUser.setUsername("TestUser");
+		testUser.setPassword(generator.generatePassword());
+		users.add(testUser);
 	}
 	
 
