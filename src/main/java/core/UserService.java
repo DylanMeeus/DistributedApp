@@ -8,6 +8,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 
@@ -16,8 +17,15 @@ import javax.inject.Named;
 //@Stateless
 public class UserService implements RemoteService, Serializable
 {
-	List<User> users;
-	PasswordGenerator generator;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private List<User> users;
+	
+	@Inject
+	private PasswordGenerator generator;
+	
 	public UserService()
 	{
 		users = new ArrayList<User>();
