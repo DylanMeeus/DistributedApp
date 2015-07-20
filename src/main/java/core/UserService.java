@@ -4,19 +4,25 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-
+import javax.websocket.Session;
+import javax.mail.*;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 @Named
 @SessionScoped
 //@Stateless
 public class UserService implements RemoteService, Serializable
 {
+	@Resource(name="mail/distributed")
+	private javax.mail.Session session;
 	/**
 	 * 
 	 */
@@ -25,6 +31,7 @@ public class UserService implements RemoteService, Serializable
 	
 	@Inject
 	private PasswordGenerator generator;
+	
 	
 	public UserService()
 	{
@@ -49,5 +56,20 @@ public class UserService implements RemoteService, Serializable
 		u.setUsername(username);
 		u.setPassword(generator.generatePassword());
 		users.add(u);
+		
+		String to = "meeusdylan@hotmail.com";
+		try
+		{
+			MimeMessage message = new MimeMessage(session);
+			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
+			message.setSubject("Testje voor u.");
+			String messageText = "Created new user in the DA application!";
+			message.setText(messageText);
+			Transport.send(message);
+		}
+		catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
 	}
 }

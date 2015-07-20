@@ -1,0 +1,9 @@
+core\RandomGenerator.class
+backingbeans\AddUserBean.class
+core\RemoteService.class
+core\UserService.class
+core\TimeBasedGenerator.class
+core\PasswordGenerator.class
+core\User.class
+backingbeans\OverviewBean.class
+launcher\Launcher.class
