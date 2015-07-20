@@ -1,14 +1,20 @@
 package core;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
-@Stateless
-public class UserService implements RemoteService
+
+@Named
+@SessionScoped
+//@Stateless
+public class UserService implements RemoteService, Serializable
 {
 	List<User> users;
 	PasswordGenerator generator;

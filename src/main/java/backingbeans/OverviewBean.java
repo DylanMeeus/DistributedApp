@@ -5,8 +5,12 @@ import java.util.List;
 
 
 
+
+
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+import javax.inject.Singleton;
 import javax.naming.InitialContext;
 
 import core.RemoteService;
@@ -23,7 +27,11 @@ public class OverviewBean implements Serializable
 	private static final long serialVersionUID = 4198654399375945623L;
 
 	List<User> userList;
-	RemoteService userService;
+	
+	@Inject
+	@Singleton
+	private RemoteService userService;
+	
 	public OverviewBean()
 	{
 		// Use JNDI to get the freakin' data!
@@ -32,6 +40,7 @@ public class OverviewBean implements Serializable
 	
 	public List<User> getUserList()
 	{
+		/*
 		try
 		{
 			InitialContext context = new InitialContext();
@@ -43,6 +52,10 @@ public class OverviewBean implements Serializable
 		{
 			ex.printStackTrace();
 		}
+		*/
+		
+		
+		userList = userService.getUsers();
 		return userList;
 	}
 	
