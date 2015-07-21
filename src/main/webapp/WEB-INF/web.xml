@@ -16,6 +16,12 @@
 		<servlet-name>Faces Servlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
+	<!-- 
+	<servlet-mapping>
+	    <servlet-name>javax.ws.rs.core.Application</servlet-name>
+	    <url-pattern>/user_api/*</url-pattern>
+	</servlet-mapping>
+	 -->
 	<session-config>
 		<session-timeout>
 			30
@@ -24,4 +30,7 @@
 	<welcome-file-list>
 		<welcome-file>overview.xhtml</welcome-file>
 	</welcome-file-list>
+	
+	
+	
 </web-app>
