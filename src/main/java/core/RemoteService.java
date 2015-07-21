@@ -10,5 +10,7 @@ import javax.enterprise.inject.Default;
 public interface RemoteService
 {
 	public void createUser(String username);
+	public void deleteUser(String username);
+	public void changePassword(String username, String newpass);
 	public List<User> getUsers();
 }

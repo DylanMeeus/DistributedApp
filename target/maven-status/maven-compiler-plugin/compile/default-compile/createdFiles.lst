@@ -5,5 +5,7 @@ core\UserService.class
 core\TimeBasedGenerator.class
 core\PasswordGenerator.class
 core\User.class
+rest\ApplicationConfig.class
 backingbeans\OverviewBean.class
 launcher\Launcher.class
+rest\RestUser.class

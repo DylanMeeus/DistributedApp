@@ -72,4 +72,33 @@ public class UserService implements RemoteService, Serializable
 			ex.printStackTrace();
 		}
 	}
+	
+	public void deleteUser(String username)
+	{
+		// Just delete all users with that username. 
+		List<User> temp = new ArrayList<User>();
+		// Enable this labmda in case we are allowed to put it on JRE8
+		// users.removeIf(u -> u.getUsername().equals(username));
+		for(User u : users)
+		{
+			if(!u.getUsername().equals(username))
+			{
+				temp.add(u);
+			}
+		}
+		users = temp;
+	}
+
+
+	@Override
+	public void changePassword(String username, String newpass)
+	{
+		for(User u : users)
+		{
+			if(u.getUsername().equals(username))
+			{
+				u.setPassword(newpass);
+			}
+		}
+	}
 }
