@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 import javax.ejb.Remote;
 import javax.ejb.Stateful;
 import javax.ejb.Stateless;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -17,7 +18,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 @Named
-@SessionScoped
+@ApplicationScoped
 //@Stateless
 public class UserService implements RemoteService, Serializable
 {
@@ -62,8 +63,8 @@ public class UserService implements RemoteService, Serializable
 		{
 			MimeMessage message = new MimeMessage(session);
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
-			message.setSubject("Testje voor u.");
-			String messageText = "Created new user in the DA application!";
+			message.setSubject("DA application mail!");
+			String messageText = "Created new user: '" +  username + "' in the DA application!";
 			message.setText(messageText);
 			Transport.send(message);
 		}

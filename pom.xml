@@ -9,7 +9,8 @@
 	<packaging>war</packaging>
 	<properties>
 		<!-- When commiting to the server; the home dir = /opt/glassfish41 -->
-		<glassfish.home>C:\\Program Files (x86)\\glassfish4</glassfish.home>
+		<!--  <glassfish.home>C:\\Program Files (x86)\\glassfish4</glassfish.home>  -->
+		<glassfish.home>/opt/glassfish41</glassfish.home>
 	</properties>
 
 
@@ -44,9 +45,8 @@
 			<version>1.2</version>
 		</dependency>
 
-		<!-- No idea why I need to remove this... <dependency> <groupId>org.glassfish.main.appclient</groupId> 
-			<artifactId>gf-client</artifactId> <version>4.0</version> </dependency> </dependencies> -->
-
+		<!-- <dependency> <groupId>org.glassfish.main.appclient</groupId> <artifactId>gf-client</artifactId> 
+			<version>4.0</version> </dependency> </dependencies> -->
 		<!-- Java Mail dependency -->
 		<dependency>
 			<groupId>javax.mail</groupId>
@@ -54,7 +54,11 @@
 			<version>1.4</version>
 		</dependency>
 
-
+		<dependency>
+			<groupId>com.googlecode.json-simple</groupId>
+			<artifactId>json-simple</artifactId>
+			<version>1.1.1</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -94,6 +98,6 @@
 			</plugin>
 
 		</plugins>
-		<finalName>user_management</finalName>
+		<finalName>r0368004_user_management</finalName>
 	</build>
 </project>
